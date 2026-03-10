@@ -2,6 +2,7 @@
 
 ok = 0
 cnt = 0
+no = ""
 answers = [
        "DB 마이그레이션 완료 여부", 
        "application-prod.properties 설정 확인",
@@ -19,7 +20,7 @@ for ans in answers:
         ok += 1
     else:
         print("-> 미완료")
-        no = cnt
+        no += f"[{cnt}] {ans}"
 
 # 모든 항목 통과
 if ok == 5:
