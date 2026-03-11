@@ -11,17 +11,22 @@ answers = [
        "API 엔드포인트 테스트 통과"
         ]
 
-for ans in answers:
+for answer in answers:
     # 질문
-    ans = input(f"[{cnt+1}/5] {ans}(Y/N): ").upper()
+    ans = input(f"[{cnt+1}/5] {answer}(Y/N): ").upper()
 
     if ans == "Y":
         print("-> 완료")
-        ok += 1
     else:
         print("-> 미완료")
-        no += f"[{cnt}] {ans}"
+        no += f"[{cnt}] {answer}\n"
+        ok += 1
+    
+    cnt += 1
 
 # 모든 항목 통과
 if ok == 5:
     print("배포 승인! 배포를 진행하세요.")
+else:
+    print(f"배포 보류! {ok}개 항목을 해결 후 재시도하세요")
+    print(no)
