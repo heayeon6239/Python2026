@@ -15,6 +15,11 @@ transactions = [
 month = {}
 monthTotal = 0
 
+# ★ a,b =10,20 가능 ★
+for date, amount in transactions:
+    if date in month:
+        month[date] += amount
+
 # 월별 매출 계산
 for tran in transactions:
     # 해당 월이 존재하면 +매출, 아니면 생성 (딕셔너리 사용시 존재 확인 필요)
@@ -29,10 +34,6 @@ for tran in month.keys():
     if month[tran] > max:
         max = month[tran]
         maxMonth = tran
-
-# test = []
-# test.append(maxMonth)
-# print(test)
 
 # 최저 매출
 min = max

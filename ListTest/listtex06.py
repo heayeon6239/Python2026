@@ -14,6 +14,14 @@ users = [
 
 print("=== 사용자별 접근 메뉴 ===")
 # 사용자 목록 접근
-# for user in users:
-#     if user['role'] == ''
-#     print(f"{role_menus[user['role']]}")
+for user in users:
+    print(f"{user["name"]} [{user["role"]}]") # 관리자김 [ADMIN]
+    for one in role_menus[user['role']]: # ['대시보드', '회원관리', '상품관리', '주문관리', '통계', '시스템설정']
+        print(f"- {one}")
+    print()
+
+# 통계 메뉴 접근 가능 사용자
+print("=== 통계 메뉴 접근 가능 사용자 ===")
+for user in users:
+    if '통계' in role_menus[user['role']]:
+        print(user['name'])
