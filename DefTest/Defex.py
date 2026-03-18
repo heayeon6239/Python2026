@@ -13,9 +13,11 @@ def show_rooms(only_available = False):
     global allRoom
     allRoom = []
     for room in rooms:
+        # 예약 가능한 객실만 출력
         if only_available == True:
             if room['state'] == True:
                 allRoom.append(room)
+        # 전체 출력
         else:
             allRoom.append(room)
 
@@ -24,12 +26,12 @@ def make_reservation(res_list, room_id, quest_name, day, people):
     for res in res_list:
         # 예약 가능
         if room_id == res["id"]:
+                res["state"] = False
 
                 # 총액 계산
                 totalPrice = calculate_price(room_id, day, people)
 
                 # 튜플상태로 배열에 담음
-                res["state"] = False
                 resData = (room_id, quest_name, people, totalPrice) # 튜플로 만들기
                 reservations.append(resData)
                 # 수정가능한 배열에 담음
